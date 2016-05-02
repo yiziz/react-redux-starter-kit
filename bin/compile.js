@@ -1,3 +1,6 @@
+const fs = require('fs-extra')
+const debug = require('debug')('app:bin:compile')
+
 import fs from 'fs-extra'
 import _debug from 'debug'
 import webpackCompiler from '../build/webpack-compiler'
@@ -6,6 +9,8 @@ import config from '../config'
 
 const debug = _debug('app:bin:compile')
 const paths = config.utils_paths
+
+
 
 ;(async function () {
   try {
