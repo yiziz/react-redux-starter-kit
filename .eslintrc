@@ -1,21 +1,46 @@
 {
   "parser"  : "babel-eslint",
   "extends" : [
-    "standard",
-    "standard-react"
+    "airbnb"
+  ],
+  "plugins" : [
+    "flow-vars"
   ],
   "env"     : {
     "browser" : true
   },
   "globals" : {
+    "Action"       : false,
     "__DEV__"      : false,
     "__PROD__"     : false,
     "__DEBUG__"    : false,
-    "__COVERAGE__" : false,
+    "__DEBUG_NEW_WINDOW__" : false,
     "__BASENAME__" : false
   },
   "rules": {
-    "semi" : [2, "never"],
-    "max-len": [2, 120, 2]
+    "react/jsx-curly-spacing": [0, "always"],
+    "arrow-parens": [1, "always"],
+    "semi": [2, "never"],
+    "space-infix-ops": 0,
+    "max-len": [2, 120, 2],
+    "flow-vars/define-flow-type": 1,
+    "flow-vars/use-flow-type": 1,
+
+    "no-unused-expressions": [2, { "allowShortCircuit": true }],
+    "new-cap": [2, { "capIsNewExceptions": ["Record", "Map", "List", "Scroll"] }],
+    "no-unused-vars": [2, {"args": "none"}],
+
+    "prefer-template": 1,
+
+    "comma-dangle": [0, "never"],
+    "jsx-quotes": [0, "prefer-double"],
+    "template-curly-spacing": [0, "never"],
+    "dot-notation": 0,
+    "arrow-body-style": [0, "as-needed"],
+    "quotes": 0,
+    "array-bracket-spacing": [0, "always"],
+    "radix": 0,
+    "no-param-reassign": 0,
+    "no-use-before-define": 0
   }
 }
