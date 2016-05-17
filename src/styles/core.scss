@@ -1,6 +1,12 @@
 :global {
-  @import 'base';
+  // vendor
+  @import 'bourbon';
+  @import 'neat';
+
   @import '~normalize.css/normalize';
+
+  @import 'base';
+  @import 'components/**/*';
 
   // Some best-practice CSS that's useful for most apps
   // Just remove them if they're not what you want

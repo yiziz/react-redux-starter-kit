@@ -9,6 +9,10 @@ const debug = _debug('app:webpack:config')
 const paths = config.utils_paths
 const {__DEV__, __PROD__, __TEST__} = config.globals
 
+// bourbon and neat asset path
+import { includePaths as bourbon } from 'node-bourbon'
+import { includePaths as neat } from 'node-neat'
+
 debug('Create configuration.')
 const webpackConfig = {
   name: 'client',
@@ -114,6 +118,12 @@ webpackConfig.eslint = {
 }
 */
 
+webpackConfig.module.preLoaders = [{
+  test: /\.scss$/,
+  exclude: /node_modules/,
+  loader: 'import-glob-loader'
+}]
+
 // ------------------------------------
 // Loaders
 // ------------------------------------
@@ -218,7 +228,7 @@ webpackConfig.module.loaders.push({
 // Style Configuration
 // ------------------------------------
 webpackConfig.sassLoader = {
-  includePaths: paths.client('styles')
+  includePaths: [paths.client('styles'), ...bourbon, ...neat]
 }
 
 webpackConfig.postcss = [
